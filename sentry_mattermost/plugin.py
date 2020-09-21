@@ -111,14 +111,14 @@ class Mattermost(notify.NotificationPlugin):
     slug = 'mattermost'
     description = 'Enables notifications for Mattermost Open Source Chat'
     version = sentry_mattermost.VERSION
-    author = 'Andre Freitas <andre.freitas@ndrive.com>'
+    author = 'Andre Freitas123 <andre.freitas@ndrive.com>'
     author_url = 'https://github.com/NDrive/sentry-mattermost'
     project_conf_form = MattermostOptionsForm
 
     def is_configured(self, project):
         return all((self.get_option(k, project) for k in ('webhook',)))
 
-    def notify(self, notification):
+    def notify(self, notification, raise_exception=False):
         project = notification.event.group.project
         if not self.is_configured(project):
             return
