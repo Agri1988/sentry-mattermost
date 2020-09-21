@@ -72,7 +72,8 @@ class PayloadFactory:
             params["rules"] = get_rules(notification, group, project)
 
         if plugin.get_option('include_tags', project):
-            params["tags"] = get_tags(event)
+            print event.__dict__
+            # params["tags"] = get_tags(event)
 
         text = cls.render_text(params)
 
